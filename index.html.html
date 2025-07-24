@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Zoya -->
+    <meta name="description" content="Zoya is a professional Web Developer, SEO Strategist, and Digital Marketer. Contact for high-performance websites, SEO, Social Media, and Google Ads management.">
+    <meta name="keywords" content="Zoya, Professional Web Developer, SEO Expert, Social Media Marketing, Google Ads, Freelancer, Portfolio, Pakistan">
+    
+    <title>Zoya | Web Developer & Digital Marketer</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS STYLES --- */
+        
+        :root {
+            --dark-bg: #111319;
+            --card-bg: #1a1d24;
+            --primary-accent: #00bfff;
+            --secondary-accent: #00f2fe;
+            --glow-color: rgba(0, 191, 255, 0.5);
+            --text-color: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        .main-header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 1rem 0; z-index: 1000;
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+        }
+        .main-header.scrolled {
+            background-color: rgba(26, 29, 36, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-bg);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
+        .logo span { color: var(--primary-accent); }
+        .desktop-nav-links { list-style: none; display: flex; gap: 2.5rem; }
+        .desktop-nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        .desktop-nav-links a:hover { color: var(--primary-accent); }
+
+        .hero { display: flex; align-items: center; min-height: 100vh; padding: 80px 0 40px; }
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 4rem; width: 100%; }
+        .hero-content { flex: 1; max-width: 650px; }
+        .hero-content h3 { font-weight: 400; font-size: 1.5rem; margin-bottom: 1rem; }
+        .hero-content h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+        .hero-content .dynamic-text { color: var(--primary-accent); text-shadow: 0 0 10px var(--glow-color); }
+        .dynamic-text::after { content: '|'; animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .hero-content p { font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; color: var(--text-muted); }
+        .cta-button {
+            display: inline-block;
+            background-image: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            color: var(--dark-bg); padding: 14px 32px; border: none; border-radius: 50px;
+            text-decoration: none; font-weight: 600; font-size: 1rem;
+            box-shadow: 0 5px 20px var(--glow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 10px 30px var(--glow-color); }
+        .hero-image { flex-shrink: 0; position: relative; width: 350px; height: 350px; }
+        .hero-image-inner {
+            position: relative; width: 100%; height: 100%; border-radius: 50%;
+            padding: 7px; overflow: hidden;
+        }
+        .hero-image-inner::before {
+            content: ''; position: absolute; inset: 0; border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+            animation: rotate-gradient 4s linear infinite;
+        }
+        @keyframes rotate-gradient { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .hero-image img {
+            position: relative; z-index: 1; width: 100%; height: 100%;
+            object-fit: cover; border-radius: 50%;
+        }
+
+        section:not(.hero) { padding: 6rem 0; border-bottom: 1px solid var(--card-bg); }
+        .section-title { text-align: center; font-size: 2.8rem; font-weight: 600; margin-bottom: 4rem; }
+        .section-title span { color: var(--primary-accent); }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .service-card {
+            background-color: var(--card-bg); padding: 2.5rem 2rem; border-radius: 15px;
+            border: 1px solid transparent; text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary-accent); box-shadow: 0 0 25px rgba(0, 191, 255, 0.2); }
+        .service-card .icon { font-size: 3rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+        .service-card p { color: var(--text-muted); line-height: 1.6; }
+        
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover { transform: translateY(-10px); }
+        .portfolio-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-card:hover .portfolio-image { transform: scale(1.05); }
+        .portfolio-content { padding: 1.5rem; }
+        .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .portfolio-tags span {
+            background-color: rgba(0, 191, 255, 0.1);
+            color: var(--primary-accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .portfolio-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .portfolio-content p { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; }
+        .portfolio-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .portfolio-link:hover { color: var(--primary-accent); }
+        .portfolio-link i { margin-left: 0.5rem; }
+
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 2rem; }
+        .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-detail .icon { font-size: 1.5rem; color: var(--primary-accent); }
+        .contact-detail a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+        .contact-detail a:hover { color: var(--primary-accent); }
+        .contact-form .input-group { margin-bottom: 1.5rem; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 1rem; background-color: var(--card-bg);
+            border: 1px solid #333; border-radius: 8px; color: var(--text-color);
+            font-family: 'Poppins', sans-serif; font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-accent); box-shadow: 0 0 10px rgba(0, 191, 255, 0.2); }
+        .contact-form textarea { resize: vertical; min-height: 120px; }
+        
+        footer { padding: 3rem 0; text-align: center; border: none;}
+        .social-links { margin-bottom: 1.5rem; }
+        .social-links a { color: var(--text-muted); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s ease, transform 0.3s ease; }
+        .social-links a:hover { color: var(--primary-accent); transform: translateY(-5px); }
+        footer p { color: var(--text-muted); }
+        
+        .hidden { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.6s ease-out; }
+        .visible { opacity: 1; transform: translateY(0); }
+
+        /* --- FINAL, POLISHED LIGHTBOX STYLES --- */
+        .modal {
+            position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s;
+        }
+        .modal.active { opacity: 1; visibility: visible; }
+        .modal-content-wrapper { position: relative; width: 90%; max-width: 900px; transform: scale(0.95); transition: transform 0.4s ease; }
+        .modal.active .modal-content-wrapper { transform: scale(1); }
+        .modal-content { display: block; width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .modal-control {
+            cursor: pointer; position: fixed; top: 50%; transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            background-color: rgba(0,0,0,0.3); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2001;
+        }
+        .modal-control:hover { color: white; transform: translateY(-50%) scale(1.1); }
+        .prev { left: 2rem; }
+        .next { right: 2rem; }
+        .close-modal { position: fixed; top: 2rem; right: 2rem; transform: none; }
+        .caption-container { text-align: center; padding: 15px 0; color: #ccc; font-size: 1rem; font-weight: 300; letter-spacing: 1px; }
+
+        /* --- RESPONSIVENESS & HAMBURGER MENU --- */
+        .hamburger-menu { display: none; z-index: 1002; }
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--dark-bg);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+        }
+        .mobile-nav.active { transform: translateX(0); }
+        .mobile-nav a { font-size: 2rem; color: var(--text-color); text-decoration: none; margin: 1.5rem 0; transition: color 0.3s ease; }
+        .mobile-nav a:hover { color: var(--primary-accent); }
+
+        @media (max-width: 768px) {
+            .desktop-nav-links { display: none; }
+            .hamburger-menu {
+                display: flex; flex-direction: column; justify-content: space-around;
+                width: 2rem; height: 2rem; background: transparent; border: none; cursor: pointer; padding: 0;
+            }
+            .hamburger-menu .bar {
+                width: 2rem; height: 2px; background-color: var(--text-color);
+                border-radius: 10px; transition: all 0.3s linear; position: relative;
+                transform-origin: 1px;
+            }
+            .hamburger-menu.active .bar:nth-child(1) { transform: rotate(45deg); }
+            .hamburger-menu.active .bar:nth-child(2) { opacity: 0; transform: translateX(20px); }
+            .hamburger-menu.active .bar:nth-child(3) { transform: rotate(-45deg); }
+
+            .hero-layout { flex-direction: column; text-align: center; }
+            .hero-content { order: 2; }
+            .hero-image { order: 1; margin-bottom: 3rem; width: 280px; height: 280px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            
+            section:not(.hero) { padding: 4rem 0; }
+            .section-title { font-size: 2.2rem; margin-bottom: 3rem; }
+            
+            .contact-content { grid-template-columns: 1fr; }
+            
+            .prev { left: 1rem; }
+            .next { right: 1rem; }
+            .close-modal { top: 1rem; right: 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header" id="mainHeader">
+        <nav class="container">
+            <a href="#home" class="logo">Zoya<span>.</span></a>
+            <ul class="desktop-nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </nav>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container" id="home">
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <h3>Hello, I'm Zoya</h3>
+                    <h1>Crafting Digital Experiences <br>that <span class="dynamic-text">Drive Growth.</span></h1>
+                    <p>
+                        A passionate developer and digital marketer, crafting high-performance websites and data-driven marketing strategies that elevate brands and achieve business goals.
+                    </p>
+                    <a href="#contact" class="cta-button">Let's Work Together</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-inner">
+                        <img src="https://i.ibb.co/23kqwrqR/Whats-App-Image-2025-07-23-at-18-53-43.jpg" alt="Portrait of Zoya, professional web developer and digital marketer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="container hidden">
+            <h2 class="section-title">My Expert<span>i</span>se</h2>
+            <div class="services-grid">
+                <div class="service-card"><div class="icon"><i class="fas fa-code"></i></div><h3>Website Development</h3><p>Building fast, responsive, and beautiful websites with modern technology for a seamless user experience.</p></div>
+                <div class="service-card"><div class="icon"><i class="fas fa-chart-line"></i></div><h3>SEO</h3><p>Driving organic traffic and boosting your search engine ranking to connect you with your target audience.</p></div>
+                <div class="service-card"><div class="icon"><i class="fas fa-bullhorn"></i></div><h3>Social Media Marketing</h3><p>Creating engaging content and strategic campaigns to build your brand's community and social presence.</p></div>
+                <div class="service-card"><div class="icon"><i class="fas fa-bullseye"></i></div><h3>Google Ads</h3><p>Managing targeted ad campaigns that generate leads and deliver a high return on your investment.</p></div>
+            </div>
+        </section>
+
+        <!-- Professional Portfolio Section -->
+        <section id="portfolio" class="container hidden">
+            <h2 class="section-title">My Recent W<span>o</span>rk</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop')"></div>
+                    <div class="portfolio-content"><div class="portfolio-tags"><span>Web Design</span><span>Development</span></div><h3>Modern E-Commerce Platform</h3><p>A sleek, fast, and responsive online store built to maximize conversions and provide a seamless shopping experience.</p><a href="https://veluskin.store/" target="_blank" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop')"></div>
+                    <div class="portfolio-content"><div class="portfolio-tags"><span>SEO</span><span>Google Ads</span></div><h3>Corporate SEO Overhaul</h3><p>A comprehensive SEO strategy that increased organic traffic by 150% and improved keyword rankings across the board.</p><a id="viewCaseStudyBtn" href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image" style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop')"></div>
+                    <div class="portfolio-content"><div class="portfolio-tags"><span>Social Media</span></div><h3>Brand Awareness Campaign</h3><p>Managed a multi-platform social media campaign that grew brand engagement and audience size by over 300% in 3 months.</p><a href="https://sproutsocial.com/insights/social-media-campaigns/" target="_blank" class="portfolio-link">View Campaign <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container hidden">
+            <h2 class="section-title">Let's C<span>o</span>nnect</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Ready to start a project?</h3><p>I'm currently available for freelance work. If you have a project in mind or just want to say hi, feel free to reach out. Let's create something brilliant together!</p>
+                    <div class="contact-detail"><span class="icon"><i class="fas fa-phone"></i></span><a href="tel:+923040403817">+92 304 0403817</a></div>
+                    <div class="contact-detail"><span class="icon"><i class="fas fa-envelope"></i></span><a href="mailto:aenyo045@gmail.com">aenyo045@gmail.com</a></div>
+                </div>
+                <form class="contact-form" action="#">
+                    <div class="input-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                    <div class="input-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                    <div class="input-group"><textarea name="message" placeholder="Your Message" required></textarea></div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>© 2025 Zoya. All Rights Reserved. Designed & Built with Passion.</p>
+        </div>
+    </footer>
+
+    <!-- FINAL LIGHTBOX MARKUP -->
+    <div id="caseStudyModal" class="modal">
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modalImage">
+            <div id="caption" class="caption-container"></div>
+        </div>
+        <a class="close-modal modal-control"><i class="fas fa-times"></i></a>
+        <a class="prev modal-control"><i class="fas fa-chevron-left"></i></a>
+        <a class="next modal-control"><i class="fas fa-chevron-right"></i></a>
+    </div>
+
+
+    <script>
+        // --- JAVASCRIPT FOR INTERACTIONS ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
+
+            // Hamburger menu functionality
+            const hamburger = document.getElementById('hamburgerMenu');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = mobileNav.querySelectorAll('a');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+
+            // Dynamic typing effect
+            const dynamicText = document.querySelector('.dynamic-text');
+            const words = ["Drive Growth.", "Engage Users.", "Boost Brands."];
+            let wordIndex = 0, charIndex = 0, isDeleting = false;
+            const type = () => {
+                const currentWord = words[wordIndex];
+                const currentChar = isDeleting ? currentWord.substring(0, charIndex--) : currentWord.substring(0, charIndex++);
+                dynamicText.textContent = currentChar;
+                const typeSpeed = isDeleting ? 75 : 150;
+                if (!isDeleting && charIndex === currentWord.length + 1) { isDeleting = true; setTimeout(type, 2000); }
+                else if (isDeleting && charIndex === -1) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); }
+                else { setTimeout(type, typeSpeed); }
+            };
+            type();
+
+            // Animate sections on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+            // --- FINAL LIGHTBOX SCRIPT ---
+            const modal = document.getElementById("caseStudyModal");
+            const viewBtn = document.getElementById("viewCaseStudyBtn");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("caption");
+            const closeBtn = document.querySelector(".close-modal");
+            const prevBtn = document.querySelector(".prev");
+            const nextBtn = document.querySelector(".next");
+
+            // UPDATED with your new, higher-quality image links
+            const caseStudyImages = [
+                "https://i.ibb.co/DHBg9wFR/Search-visibility-Gogle-Search-Console-700x365-1-Picsart-Ai-Image-Enhancer.png",
+                "https://i.ibb.co/wNHx7z8r/mechanic-in-philadelphia-ahrefs-Picsart-Ai-Image-Enhancer.png",
+                "https://i.ibb.co/ZRj1bdgZ/1620144825534-Picsart-Ai-Image-Enhancer.png",
+                "https://i.ibb.co/WvJHJwV1/2-Search-Console-coverage-report-Picsart-Ai-Image-Enhancer.png",
+                "https://i.ibb.co/jkHgYb0c/organic-research-backlinko-estimated-traffic-trend-Picsart-Ai-Image-Enhancer.png"
+            ];
+            let currentSlideIndex = 0;
+
+            function showSlide(index) {
+                if (index >= caseStudyImages.length) { currentSlideIndex = 0; }
+                if (index < 0) { currentSlideIndex = caseStudyImages.length - 1; }
+                modalImg.src = caseStudyImages[currentSlideIndex];
+                captionText.innerHTML = (currentSlideIndex + 1) + " / " + caseStudyImages.length;
+            }
+
+            function openModal() { modal.classList.add('active'); currentSlideIndex = 0; showSlide(currentSlideIndex); }
+            function closeModal() { modal.classList.remove('active'); }
+
+            viewBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+            closeBtn.addEventListener('click', closeModal);
+            prevBtn.addEventListener('click', () => { currentSlideIndex--; showSlide(currentSlideIndex); });
+            nextBtn.addEventListener('click', () => { currentSlideIndex++; showSlide(currentSlideIndex); });
+            modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') { prevBtn.click(); }
+                    else if (e.key === 'ArrowRight') { nextBtn.click(); }
+                    else if (e.key === 'Escape') { closeModal(); }
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
